@@ -45,14 +45,6 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Quick Start',
-              to: 'docs/quickStart/',
-            },
-            {
-              label: 'FAQ\'s',
-              to: 'docs/FAQ/',
-            },
-            {
               label: 'Full Documentation',
               to: 'docs/',
             },
