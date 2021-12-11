@@ -91,13 +91,6 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Baby Shark Tank Launchpad',
-      items: [
-        'BabySharkTank/babySharkTank'
-      ],
-    },
-    {
-      type: 'category',
       label: 'FAQ',
       items: [
         'FAQ/faq'
