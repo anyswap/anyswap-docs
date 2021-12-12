@@ -16,7 +16,7 @@ The use of a single signature to send assets, or interact with smart contracts c
 
 (b) The signers have to be pre-defined and this is inflexible, 
 
-(c) The signing addresses are public, so that the access structure is known to everyone and 
+(c) The signing addresses are public, so that the access structure is known to everyone,
 
 (d) The data for signing is large, possibly requiring many keys.
 
@@ -32,9 +32,9 @@ The solution is to use Threshold Signature Schemes (TSS), splitting the key up. 
 Multichain's SMPC Network
 -------------------------
 
-At the heart of Multichain is its Secure Multi Party Computation (SMPC) [Multichain network of nodes](https://anyswap.net), which uses a TSS Distributed Key Generation algorithm. This code has been completely and freshly written by Multichain's engineers and is optimised for multichain applications. Each node in a set, selected from the network, works independently from the others to generate part of the private key responsible for signing transactions. They collectively sign transactions, but crucially they cannot individually do so and the key is not reconstructed when signing.
+At the heart of Multichain is its Secure Multi Party Computation (SMPC) [Multichain network of nodes](https://anyswap.net), which uses a TSS Distributed Key Generation algorithm. This code has been completely and freshly written by Multichain's engineers and is optimised for multichain applications. Each node in a set, selected from the network, works independently from the others to generate part of the private key responsible for signing transactions. They collectively sign transactions, but crucially they cannot individually do so and the key is not reconstructed when signing. The complete key is never assembled and so it can not be intercepted.
 
-This is accomplished by several rounds of communication between the t+1 nodes. If one sends a bad message, then it is important that this node can be recognised, or else there is the possibility of a Dedicated Denial of Service Attack. GG20 solves this using an elegant property of the ECDSA algorithm, so that R the part of the signature from a node can be used to query whether it was at fault (the 'bad actor'). Other features present in GG20 that increase efficiency are the ability to have Asynchronous Approval, where a large number of signatures can be pre-computed, calculating the R factor in the ECDSA signatures, before thay are needed. This encompasses most of the computation and communication, with only the final round of communication necessary to actually sign the message, with all *t+1* nodes online at this stage. This means that for the bulk of the work, there is no longer the need for all nodes to be online simulataneously, with the implication that some network latency can be accommodated.
+This is accomplished by several rounds of communication between the *t+1* nodes. If one sends a bad message, then it is important that this node can be recognised, or else there is the possibility of a Dedicated Denial of Service Attack. GG20 solves this using an elegant property of the ECDSA algorithm, so that R, the part of the signature from a node can be used to query whether it was at fault (the 'bad actor'). Other features present in GG20 that increase efficiency are the ability to have Asynchronous Approval, where a large number of signatures can be pre-computed, calculating the R factor in the ECDSA signatures, before they are needed. This encompasses most of the computation and communication, with only the final round of communication necessary to actually sign the message, with all *t+1* nodes online at this stage. This means that for the bulk of the work, there is no longer the need for all nodes to be online simulataneously, with the implication that some network latency can be accommodated.
 
 The SMPC network is responsible for signing transactions on each supported blockchain to perform a multitude of tasks comprising the management of asset accounts and smart contracts. A Threshold, will be needed to sign the transaction. This Threshold Signature (TSS) is denoted 15/9, 21/15, 31/21 etc., where the first number is the total number of nodes in the set *n*, and the second is the number of them needed to sign, *t+1*.
 
@@ -49,7 +49,7 @@ The Multichain Bridges
 
 ![Bridge Schematic](/img/Bridge-schematic.jpg)
 
-Each Bridge is a link between two block chains. On the asset origin chain, the asset to be bridged is sent to a special SMPC wallet address and held securely there. This is the Decentralized Custody Management Account. On the destination chain, a smart contract mints tokens 1:1 with those held in Custody Management Account and sends them to the user's wallet. The opposite also happens when tokens are sent to the smart contract; they are burned and then the SMPC nodes release them on the origin chain.
+Each Bridge is a link between two block chains. On the asset origin chain, the asset to be bridged is sent to a special SMPC wallet address and held securely there. This is the Decentralized Custody Management Account. On the destination chain, a smart contract mints tokens 1:1 with those held in the Custody Management Account and sends them to the user's wallet. The opposite also happens when tokens are sent to the smart contract; they are burned and then the SMPC nodes release them on the origin chain.
 
 The SMPC nodes perform several functions in linking an origin block chain with a destination block chain, completely autonomously and without human intervention :-
 
@@ -61,7 +61,7 @@ The SMPC nodes perform several functions in linking an origin block chain with a
 
 (d) If assets are redeemed, the Wrapped Asset smart contract is triggered by the MPC nodes to burn the tokens. The MPC nodes then release the assets from the Decentralized Custody Management Account and sends them to the user on the origin chain.
 
-The wrapped asset token contract AnyswapV5ERC20 on the destination chain is a superset of the standard ERC20 type of contract. This contract allows minting of assets from the Wrapped Asset smart contract, but no other address can mint assets, since this could permit a non-equivalence between assets held by the SMPC address and those wrapped assets created. For this reason, some common asset types are not suitable for Bridges, including Elastic tokens.
+The wrapped asset token contract AnyswapV5ERC20 on the destination chain is a superset of the standard ERC20 type of contract. This contract allows minting of assets from the Wrapped Asset smart contract, but no other address can mint assets, since this could permit a non-equivalence between assets held by the SMPC address and those wrapped assets created. For this reason some common asset types are not suitable for Bridges, including Elastic tokens.
 
 
 
@@ -93,7 +93,7 @@ The sequence that is followed when a user transfers XYZ from chain A to chain B 
 **(b) Router using Bridged Assets**
 
 
-When the Router uses assets which are created using AnyswapV5ERC20.sol (Bridged assets), There is no need for a liquidity pool for the asset, since Multichain controls the supply of the asset on the chain where the contract resides. In this case the pool size is 'Unlimited'. For a Routed asset whose cross chain minting is entirely controlled by AnyswapV5ERC20, all that is required, is that a supply of that asset is added to the pool on the chain where the token was originally minted. A good example of this is MIM, which is created on Ethereum as a collateralized asset, but which has a series of bridges other chains (using AnyswapV5ERC20). These bridges are incorporated into the Router.
+When the Router uses assets which are created using AnyswapV5ERC20.sol (Bridged assets), There is no need for a liquidity pool for the asset, since Multichain controls the supply of the asset on the chain where the contract resides. In this case the pool size is 'Unlimited'. For a Routed asset whose cross chain minting is entirely controlled by AnyswapV5ERC20, all that is required, is that a supply of that asset is added to the pool on the chain where the token was originally minted. A good example of this is MIM, which is created on Ethereum as a collateralized asset, but which has a series of bridges to other chains (using AnyswapV5ERC20). These bridges are incorporated into the Router.
 
 ![Router with Bridged Assets](/img/Router-MIM-bridged-assets.png)
 

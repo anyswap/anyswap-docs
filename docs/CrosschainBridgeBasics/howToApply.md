@@ -1,9 +1,14 @@
 ---
 id: howToApply
-title: How to Apply for Token Bridging
-description: How to apply for token bridging
-sidebar_label: How to Apply for Bridging
+title:  How to Apply for Multichain
+description: How to apply for Multichain
+sidebar_label: How to Apply for Multichain
 ---
+
+This section covers how to apply for either a token Bridge listing, Router listing or integration of a new block chain into the Multichain SMPC Network. 
+
+Listing a Cross Chain Token
+===========================
 
 Applying for a Bridge Listing
 -----------------------------
@@ -36,7 +41,33 @@ Occasionally for larger projects, we will make exceptions and implement their to
 
 
 Applying to Add a New Block Chain
----------------------------------
+=================================
+
+Please reach out to one of our team and we can talk you through the process of integrating new chains into our SMPC network. Please note that we are very busy and that it can take some time before we can schedule integration of new chains. We ask for an up front deposit of a few ETH to secure scheduling.
+
+For EVM's we have some requirements to be met [Adding EVM's to Multichain](https://github.com/anyswap/CrossChain-Bridge/wiki/New-EVM-Chain-Listing-Requirement)
 
 
+We can integrate any chain that uses ECDSA or EdDSA encryption, but some factors make it easier and quicker to implement
 
+- A well functioning block explorer, preferably one that has the functionality of etherscan.io
+
+- A wallet that is well recognised. It is easiest for us if the new chain supports MetaMask as a bare minimum, but we can also work with Coin98 or TerraStation for COSMOS ecosystem chains.
+
+- Standard RPC calls to the EVM. If these have been altered, then we must check that the functionality is still there for us to be able to integrate. We only require quite basic calls.
+
+- Concurrent with a recent EVM, such as London.
+
+- An easy to implement Full Node. We will need to run a full node. If there is stable code to do this with well written instructions, then this will speed up the process.
+
+- Well functioning RPC Gateways. 
+
+
+Selection of Tokens to Bridge
+-----------------------------
+
+In the first instance we will not include the bridged tokens in our Router. This step usually can be taken after a few months when we are confident of the security and stability of the neewly added blockchain.
+
+Whilst our engineers are integrating the chain, we will talk to you about which assets we will include to Bridge in the first instance. We will need assurance that these assets will have good liquidity provided by DEXes. We will make contact with DEXes on the new chain, with a Multichain partnership very much something that we consider worthwhile for the ecosystem.
+
+For existing assets on the new chain, we can include them in the Router once that is implemented, following a period to ensure stability for the Bridges.
