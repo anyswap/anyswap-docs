@@ -7,11 +7,9 @@ sidebar_label: How to Apply for Multichain
 
 This section covers how to apply for either a token Bridge listing, Router listing or integration of a new block chain into the Multichain SMPC Network. 
 
-Listing a Cross Chain Token
-===========================
+## Listing a Cross Chain Token
 
-Applying for a Bridge Listing
------------------------------
+### Applying for a Bridge Listing
 
 To apply for a token Bridge listing, a member of the project team needs to complete this form [Applying for a Multichain Token Bridge](https://dard6erxu8t.typeform.com/to/C7RwF08A).
 
@@ -28,8 +26,7 @@ For new projects that are not yet listed at Coingecko, we perform due diligence,
 It normally takes about 2 weeks for a new Bridge to go live. Occasionally a project may need a listing more quickly than this. If this is the case and to compensate us for the disruption to our work schedule, we charge a Rapid Listing fee of 2 ETH.
 
 
-Applying for Inclusion in the Router
-------------------------------------
+### Applying for Inclusion in the Router
 
 Normally we insist that a project first applies for a Bridge listing before we will include them in the Router (See [How It Works](/HowItWorks/howItWorks.md) if you are not sure of the difference between a Bridge and the Router).
 
@@ -40,8 +37,7 @@ Once a project's token is on the Router, the project team can simply ask us to a
 Occasionally for larger projects, we will make exceptions and implement their token directly to the Router.
 
 
-Applying to Add a New Block Chain
-=================================
+## Applying to Add a New Block Chain
 
 Please reach out to one of our team and we can talk you through the process of integrating new chains into our SMPC network. Please note that we are very busy and that it can take some time before we can schedule integration of new chains. We ask for an up front deposit of a few ETH to secure scheduling.
 
@@ -63,10 +59,9 @@ We can integrate any chain that uses ECDSA or EdDSA encryption, but some factors
 - Well functioning RPC Gateways. 
 
 
-Selection of Tokens to Bridge
------------------------------
+### Selection of Tokens to Bridge
 
-In the first instance we will not include the bridged tokens in our Router. This step usually can be taken after a few months when we are confident of the security and stability of the neewly added blockchain.
+In the first instance we will not include the bridged tokens in our Router. This step usually can be taken after a few months when we are confident of the security and stability of the newly added blockchain.
 
 Whilst our engineers are integrating the chain, we will talk to you about which assets we will include to Bridge in the first instance. We will need assurance that these assets will have good liquidity provided by DEXes. We will make contact with DEXes on the new chain, with a Multichain partnership very much something that we consider worthwhile for the ecosystem.
 

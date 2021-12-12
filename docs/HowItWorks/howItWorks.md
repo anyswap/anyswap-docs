@@ -5,8 +5,8 @@ description: How cross chain works
 sidebar_label: How Cross Chain Works
 ---
 
-Some Background
----------------
+## Some Background
+
 
 The distributed key algorithm used by Multichain was derived from the ground breaking work of Steven Goldfeder (Offchain Labs, Cornell Tech) and Rosario Gennero (City College, CUNY). Their paper of 2019, referred to as GG20, has been implemented in new code by Multichain and continuously improved.
 
@@ -29,8 +29,7 @@ The solution is to use Threshold Signature Schemes (TSS), splitting the key up. 
 (c) It is efficient since only a single signature goes on the chain, looking like a regular signature.
 
 
-Multichain's SMPC Network
--------------------------
+## Multichain's SMPC Network
 
 At the heart of Multichain is its Secure Multi Party Computation (SMPC) [Multichain network of nodes](https://anyswap.net), which uses a TSS Distributed Key Generation algorithm. This code has been completely and freshly written by Multichain's engineers and is optimised for multichain applications. Each node in a set, selected from the network, works independently from the others to generate part of the private key responsible for signing transactions. They collectively sign transactions, but crucially they cannot individually do so and the key is not reconstructed when signing. The complete key is never assembled and so it can not be intercepted.
 
@@ -44,8 +43,7 @@ As mentioned in the Introduction, the SMPC network is currently used for a numbe
 
 
 
-The Multichain Bridges
-----------------------
+## The Multichain Bridges
 
 ![Bridge Schematic](/img/Bridge-schematic.jpg)
 
@@ -66,8 +64,7 @@ The wrapped asset token contract AnyswapV5ERC20 on the destination chain is a su
 
 
 
-The Multichain Router
----------------------
+## The Multichain Router
 
 Multichain's Router allows assets to be transferred between two or more blockchains. There are three categories of Routing transfer that we can consider :-
 

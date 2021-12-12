@@ -53,8 +53,7 @@ module.exports = {
       type: 'category',
       label: 'Developer\'s Guide',
       items: [
-        'DevelopersGuide/crossChainContract',
-        'DevelopersGuide/integrateFrontend',
+        'DevelopersGuide/integrateBridgeFrontend',
         'DevelopersGuide/integrateSmartContract',
         'DevelopersGuide/anyCall'
       ],

@@ -5,6 +5,8 @@ description: Introduction
 sidebar_label: Introduction
 ---
 
+Multichain is the ultimate Router for web3. It is an infrastructure developed for arbitrary cross-chain interactions.
+
 
 Multichain was born as Anyswap on the 20th July 2020 to service the clear needs of different and diverse blockchains to communicate with each other. Each blockchain has its own unique services that it provides, its own community and its own development ecosystem. For our industry to reach the next level for consumers, we need a fast, secure, inexpensive and reliable way to exchange value, data and exercise control between the chains. 
 
